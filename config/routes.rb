@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'users#register'
+  root 'users#index'
+
   get 'users/register', to: 'users#register'
-  post 'users' ,to: 'users#create'
+  resources :users
 end
