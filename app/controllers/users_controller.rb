@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_register_path, notice: 'User registered successfully!'
     else
+      flash.now[:alert] = 'Error creating user.'
       render 'register', status: :unprocessable_entity
     end
   end
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_url, notice: 'User was successfully deleted.'
+    redirect_to users_path, notice: 'User was successfully deleted.'
   end
 
   private

@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <div id="toast-container"></div>
     <%= yield %>
+
+    <% flash.each do |type, message| %>
+      <script>
+        showToast("<%= message %>", "<%= type %>");
+      </script>
+    <% end %>
   </body>
 </html>
