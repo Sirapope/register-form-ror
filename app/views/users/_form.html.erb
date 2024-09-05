@@ -1,0 +1,61 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="form-group">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name %>
+    </div>
+    <div class="form-group">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <%= form.label :birthday %>
+      <%= form.date_field :birthday %>
+    </div>
+    <div class="form-group">
+      <%= form.label :gender %>
+      <div class="radio-group">
+        <div class="radio-item">
+          <%= form.radio_button :gender, 'male' %>
+          <%= form.label :gender_male, 'Male' %>
+        </div>
+        <div class="radio-item">
+          <%= form.radio_button :gender, 'female' %>
+          <%= form.label :gender_female, 'Female' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <%= form.label :email %>
+      <%= form.email_field :email %>
+    </div>
+    <div class="form-group">
+      <%= form.label :phone_number %>
+      <%= form.telephone_field :phone_number %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :subject %>
+    <%= form.select :subject, options_for_select(['Math', 'English', 'Science']), prompt: 'Choose option' %>
+  </div>
+
+  <%= form.submit class: 'submit' %>
+<% end %>

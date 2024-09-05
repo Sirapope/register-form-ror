@@ -1,47 +1,8 @@
-
 <div class="form-container">
-<h1 class="h1">Register Form</h1>
-<%= form_with(url: users_path,method: :post, local: true) do |form| %>
-<div class="form-row">
-  <div class="form-group">
-    <%= form.label :first_name %> <%= form.text_field :first_name %>
-  </div>
-  <div class="form-group">
-    <%= form.label :last_name %> <%= form.text_field :last_name %>
-  </div>
-</div>
 
-<div class="form-row">
-  <div class="form-group">
-    <%= form.label :birthday %> <%= form.date_field :birthday %>
+  <div class="navigation-buttons">
+    <%= link_to 'Back', users_path, class: 'back-button' %>
   </div>
-  <div class="form-group">
-    <%= form.label :gender %>
-    <div class="radio-group">
-      <div class="radio-item">
-        <%= form.radio_button :gender, 'male' %> <%= form.label :gender_male,
-        'Male' %>
-      </div>
-      <div class="radio-item">
-        <%= form.radio_button :gender, 'female' %> <%= form.label :gender_female, 'Female' %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-row">
-  <div class="form-group">
-    <%= form.label :email %> <%= form.email_field :email %>
-  </div>
-  <div class="form-group">
-    <%= form.label :phone_number %> <%= form.telephone_field :phone_number %>
-  </div>
-</div>
-
-<div class="form-group">
-  <%= form.label :subject %> <%= form.select :subject,
-  options_for_select(['Math', 'English', 'Science']), prompt: 'Choose option' %>
-</div>
-
-<%= form.submit 'Register', class: 'submit' %> <% end %>
+  <h1 class="h1">Register Form</h1>
+  <%= render 'form', user: @user %>
 </div>
