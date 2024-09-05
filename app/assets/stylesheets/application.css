@@ -13,48 +13,82 @@
  *= require_tree .
  *= require_self
  */
-
-table {
+ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-}
-
-th,
-td {
-    padding: 10px;
-    border: 1px solid #ddd;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  th, td {
+    padding: 12px 15px;
     text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  th {
+    background-color: #f8f8f8;
     font-weight: bold;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-a {
-    color: #007bff;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .actions a , .actions .delete-button {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #495fad;
+    color: white;
     text-decoration: none;
-    margin-right: 10px;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.navigation-buttons {
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+  .actions .delete-button {
+    background-color: #f9691b;
+  }
+  
+  .actions a:hover {
+    background-color: #3a4d91;
+  }
+  
+  .register-link {
+    display: inline-block;
     margin-top: 20px;
-}
+    padding: 10px 15px;
+    background-color: #5a73d0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .register-link:hover {
+    background-color: #495fad;
+  }
+
+
 
 .back-button {
     display: inline-block;
     margin-bottom: 1rem;
     color: #5a73d0;
     text-decoration: none;
-    border-radius: 5px;
     transition: background-color 0.3s ease;
 }

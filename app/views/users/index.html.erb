@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="index-container">
   <h1>All Users</h1>
 
   <table>
@@ -18,15 +18,15 @@
           <td><%= user.last_name %></td>
           <td><%= user.email %></td>
           <td><%= user.subject %></td>
-          <td>
+          <td class="actions">
             <%= link_to 'View', user_path(user) %>
             <%= link_to 'Edit', edit_user_path(user) %>
-            <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= button_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete-button' %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
   
-  <%= link_to 'Register New User', users_register_path %>
+  <%= link_to 'Register New User', users_register_path , class: 'register-link'%>
 </div>
