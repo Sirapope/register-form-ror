@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_register_path, notice: 'User registered successfully!'
+      redirect_to users_path, notice: 'User registered successfully!'
     else
       flash.now[:alert] = 'Error creating user.'
       render 'register', status: :unprocessable_entity
