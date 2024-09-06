@@ -17,11 +17,8 @@ RUN apk add --no-cache \
     build-base \
     gcompat \
     git \
-    libxml2-dev \
-    libxslt-dev \
     nodejs \
     tzdata \
-    vips-dev \
     yarn
 
 # Install application gems
@@ -43,8 +40,6 @@ FROM base
 # Install runtime dependencies
 RUN apk add --no-cache \
     gcompat \
-    libxml2 \
-    libxslt \
     sqlite \
     tzdata \
     vips
