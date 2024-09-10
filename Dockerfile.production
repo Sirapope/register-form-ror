@@ -13,6 +13,9 @@ RUN apk add --no-cache \
 # Set working directory
 WORKDIR /app
 
+# Set production environment
+ENV RAILS_ENV=production
+ENV RAILS_SERVE_STATIC_FILES=true
 # Copy Gemfile and Gemfile.lock
 COPY Gemfile Gemfile.lock ./
 
@@ -23,7 +26,7 @@ RUN bundle install
 COPY . .
 
 # Precompile assets
-RUN rails assets:precompile
+RUN SECRET_KEY_BASE=dummy rails assets:precompile
 
 # Final stage
 FROM ruby:3.3.1-alpine
@@ -36,6 +39,11 @@ RUN apk add --no-cache \
 
 # Set working directory
 WORKDIR /app
+
+# Set production environment
+ENV RAILS_ENV=production
+ENV RAILS_SERVE_STATIC_FILES=true
+ENV RAILS_LOG_TO_STDOUT=true
 
 # Copy built artifacts from builder stage
 COPY --from=builder /usr/local/bundle /usr/local/bundle

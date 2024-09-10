@@ -2,16 +2,9 @@ version: '3'
 
 services:
   web:
-    image: sirapopec/rails-app:latest
+    # image: sirapopec/rails-app:latest
+    build: .
     ports:
       - "80:80"
     environment:
-      - RAILS_ENV=production
-      - RAILS_SERVE_STATIC_FILES=true
-      - RAILS_LOG_TO_STDOUT=true
-    volumes:
-      - ./sqlite_data:/rails/db/sqlite_data
-    command: bash -c "bin/rails db:migrate && bin/rails server -b 0.0.0.0"
-
-volumes:
-  sqlite_data:
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
